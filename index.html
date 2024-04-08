@@ -1,58 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crafts</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-  <h1>Buy and Sell Crafts <span href="#" id="add-craft-link">+</span></h1>
-  <div class="row" id="crafts-container"></div>
+    <header>
+        <h1>Buy and Sell Crafts<a href="#" id="add-link">+</a></h1>
+    </header>
+    <div id="craft-list" class="columns"></div>
+    <div id="dialog" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick="document.getElementById('dialog').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <section id="dialog-details">
+                    <form id="craft-form" method="post" class="hidden">
+                        <input type="hidden" id="_id" name="_id">
+                        <p>
+                            <label for="name ">Craft Name:</label>
+                            <input type="text" id="name" name="name" required />
+                        </p>
+                        <p>
+                            <label for="description">Description:</label>
+                            <input type="text" id="description" name="description" required />
+                        </p>
 
-  <div id="craft-dialog" class="modal">
-    <div class="modal-content">
-      <div class="modal-left">
-        <span onclick="closeCraftDialog()" class="close">&times;</span>
-        <section id="craft-form">
-          <form id="add-craft-form">
-            <h2>Make Changes to your Craft</h2>
-            <p>
-              <label for="craft-name">Craft Name:</label>
-              <input type="text" id="craft-name" name="name" required>
-            </p>
-            <p>
-              <label for="craft-description">Description:</label>
-              <input type="text" id="craft-description" name="description" required>
-            </p>
-            <p>
-              <label for="craft-img">Select an image:</label>
-              <input type="file" id="craft-img" name="image" accept="image/*">
-              <img id="img-prev">
-            </p>
-            <p>
-              <label for="craft-supplies">Supplies:</label><br>
-              <input type="text" id="craft-supplies" data-supply required>
-              <a href="#" id="add-supply">Add Supply</a>
-            </p>
-            <div id="supplies-container"></div>            
-            <p>
-              <button type="submit">Save</button>
-              <button type="button" id="cancel-btn">Cancel</button>
-            </p>
-          </form>
-        </section>
-      </div>
+                        <section class="columns">
+                            <p id="img-prev-section">
+                                <img id="img-prev">
+                            </p>
+                            <p>
+                                <label for="img">Upload Image:</label>
+                                <input type="file" id="img" name="img" accept="image/*" />
+                            </p>
+                        </section>
+
+                        <p id="supplies-paragraph">
+                            <label class="inline">Supplies:</label>
+                            <a href="#" id="add-supply">Add Supplies</a>
+                        <section id="supply-forms"></section>
+                        </p>
+                        <p>
+                            <button type="submit">Submit</button>
+                        </p>
+                    </form>
+
+                    <section id="craft-details" class="hidden">
+
+                    </section>
+                </section>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div id="modal" class="modal">
-    <div id="modal-content" class="modal-content"></div>
-  </div>
-
-  <script src="script.js"></script>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
