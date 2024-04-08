@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafts</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <h1>Buy and Sell Crafts <span href="#" id="add-craft-link">+</span></h1>
+  <div class="row" id="crafts-container"></div>
+
+  <div id="craft-dialog" class="modal">
+    <div class="modal-content">
+      <div class="modal-left">
+        <span onclick="closeCraftDialog()" class="close">&times;</span>
+        <section id="craft-form">
+          <form id="add-craft-form">
+            <h2>Make Changes to your Craft</h2>
+            <p>
+              <label for="craft-name">Craft Name:</label>
+              <input type="text" id="craft-name" name="name" required>
+            </p>
+            <p>
+              <label for="craft-description">Description:</label>
+              <input type="text" id="craft-description" name="description" required>
+            </p>
+            <p>
+              <label for="craft-img">Select an image:</label>
+              <input type="file" id="craft-img" name="image" accept="image/*">
+              <img id="img-prev">
+            </p>
+            <p>
+              <label for="craft-supplies">Supplies:</label><br>
+              <input type="text" id="craft-supplies" data-supply required>
+              <a href="#" id="add-supply">Add Supply</a>
+            </p>
+            <div id="supplies-container"></div>            
+            <p>
+              <button type="submit">Save</button>
+              <button type="button" id="cancel-btn">Cancel</button>
+            </p>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div id="modal-content" class="modal-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
