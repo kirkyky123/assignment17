@@ -169,6 +169,11 @@ const showCraftForm = (e) => {
   }
 };
 
+function closeDialogAndReset() {
+  document.getElementById('dialog').style.display = 'none';
+  resetForm();
+}
+
 const deleteCraft = async(craft) =>{
   let response = await fetch(`/api/crafts/${craft._id}`,{
     method:"DELETE",
